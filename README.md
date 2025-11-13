@@ -15,7 +15,7 @@ Custom ACK-based message protocol
 Clean separation between Client, Server, and Program logic
 
 🧠 How It Works
-1️⃣ Server (TempServer.cs)
+1.) Server (TempServer.cs)
 
 The server listens on port 11000, accepts client connections, and interprets incoming commands.
 
@@ -30,14 +30,14 @@ using Socket listener = new(
 listener.Bind(ipEndPoint);
 listener.Listen(100);
 ```
-2️⃣ Client (TempClient.cs)
+2.) Client (TempClient.cs)
 
 The client connects to the server and sends commands entered by the user. It receives responses and strips the <ACK> tag before displaying output.
 ```csharp
 await client.ConnectAsync(ipEndPoint);
 await client.SendAsync(Encoding.UTF8.GetBytes(message), SocketFlags.None);
 ```
-3️⃣ Program Entry (Program_Temp.cs)
+3.) Program Entry (Program_Temp.cs)
 
 Starts the server or client depending on configuration.
 
