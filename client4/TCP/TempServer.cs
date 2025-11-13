@@ -38,11 +38,11 @@ internal class TempServer
 
             string reply;
             
-            // ตรวจสอบว่าข้อความเป็นคำสั่งอุณหภูมิหรือไม่
+            // Check condition that this is for temperature or not
             if (message.StartsWith("C ") || message.StartsWith("F ") || 
                 message.StartsWith("c ") || message.StartsWith("f "))
             {
-                // ⚙️ Logic การแปลงอุณหภูมิ (โค้ดเดิม)
+                
                 try
                 {
                     var parts = message.Split(' ');
@@ -59,7 +59,7 @@ internal class TempServer
                         else if (mode == 'F')
                             result = (value - 32) * 5 / 9;
                         else
-                            throw new Exception(); // จะไม่ถึงตรงนี้ถ้า parts[0] ถูกต้อง
+                            throw new Exception(); 
 
                         reply = $"Result: {result:F2} ({(mode == 'C' ? "°F" : "°C")})";
                     }
@@ -69,11 +69,11 @@ internal class TempServer
                     reply = "Error: Invalid input format for temperature.";
                 }
             }
-            else // ➕ Logic การคำนวณคณิตศาสตร์ (โค้ดใหม่ที่เพิ่มเข้ามา)
+            else 
             {
                 try
                 {
-                    // ใช้ DataTable.Compute ในการประมวลผลสมการคณิตศาสตร์
+                    //  DataTable.Compute 
                     object result = dataTable.Compute(message, null);
                     reply = $"Arithmetic Result: {result}";
                 }
