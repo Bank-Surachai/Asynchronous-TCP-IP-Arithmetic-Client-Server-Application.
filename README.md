@@ -33,23 +33,25 @@ listener.Listen(100);
 2️⃣ Client (TempClient.cs)
 
 The client connects to the server and sends commands entered by the user. It receives responses and strips the <ACK> tag before displaying output.
-
+```csharp
 await client.ConnectAsync(ipEndPoint);
 await client.SendAsync(Encoding.UTF8.GetBytes(message), SocketFlags.None);
-
+```
 3️⃣ Program Entry (Program_Temp.cs)
 
 Starts the server or client depending on configuration.
 
 🧪 Example Usage
+```csharp
 Temperature
 Input:  C 100
 Output: Result: 212 °F
-
+```
 Arithmetic
+```csharp
 Input: 10*5-3
 Output: Arithmetic Result: 47
-
+```
 🛠 Technologies Used
 
 C# (.NET 9)
