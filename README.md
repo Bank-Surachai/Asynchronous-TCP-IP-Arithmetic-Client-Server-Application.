@@ -14,13 +14,10 @@ Custom ACK-based message protocol
 
 Clean separation between Client, Server, and Program logic
 
-🧠 How It Works
-1.) Server (TempServer.cs)
-
+🧠 How It Works                                                                  
+1.) Server (TempServer.cs)     
 The server listens on port 11000, accepts client connections, and interprets incoming commands.
-
 Commands starting with C or F are processed as temperature conversion operations.
-
 Any other input is evaluated as a mathematical expression.
 ```csharp
 using Socket listener = new(
