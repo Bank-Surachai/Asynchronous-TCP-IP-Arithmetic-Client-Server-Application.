@@ -22,14 +22,14 @@ The server listens on port 11000, accepts client connections, and interprets inc
 Commands starting with C or F are processed as temperature conversion operations.
 
 Any other input is evaluated as a mathematical expression.
-
+```csharp
 using Socket listener = new(
     ipEndPoint.AddressFamily,
     SocketType.Stream,
     ProtocolType.Tcp);
 listener.Bind(ipEndPoint);
 listener.Listen(100);
-
+```
 2️⃣ Client (TempClient.cs)
 
 The client connects to the server and sends commands entered by the user. It receives responses and strips the <ACK> tag before displaying output.
